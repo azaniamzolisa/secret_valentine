@@ -6,7 +6,7 @@ User.destroy_all
 users_data = [
   "Bongiwe", "Genius", "Siza", "Sifiso", "Micaela",
   "Rayshaan", "Ashley", "Roberto", "JP", "Binta",
-  "Janet", "Katherine", "Prince", "Kiki", "Tennessee", "Gabz"
+  "Janet", "Katherine", "Prince", "Kiki", "Tennessee", "Gabz", "Ajmal"
 ]
 
 counter = 1
