@@ -1,0 +1,13 @@
+<h1>Welcome to Secret Valentine!</h1>
+<p>Join the fun and spread the love with our Secret Valentine gift exchange.</p>
+
+<% if current_user %>
+  <% if @match.present? %>
+    <%= link_to "View Match", match_path(@match) %>
+  <% else %>
+    <%= link_to "Find a Match", new_match_path %>
+  <% end %>
+<% else %>
+  <%= link_to "Log In", new_user_session_path %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+<% end %>
