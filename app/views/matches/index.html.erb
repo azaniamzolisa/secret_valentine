@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: #ff6b81; font-size: 20px; font-family: 'Dancing Script', cursive;"><%= notice %></p>
 
-<h1>Matches</h1>
+<h1 class="page-title">💘 Your Matches 💘</h1>
 
-<div id="matches">
+<div id="matches" class="match-gallery">
   <% @matches.each do |match| %>
-    <%= render match %>
-    <p>
-      <%= link_to "Show this match", match %>
-    </p>
+    <div class="match-card">
+      <%= render match %>
+      <p>
+        <%= link_to "Show this match", match, class: "button" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New match", new_match_path %>
+<%= link_to "New match", new_match_path, class: "button new-match-btn" %>

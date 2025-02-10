@@ -1,37 +1,163 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- 
- body {
-  font-family: Arial, sans-serif;
-  background-color: #ffe6e6;
+/* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+/* Title Styling */
+.page-title {
   text-align: center;
-  padding: 50px;
+  font-size: 2.5em;
+  color: #e74c3c;
+  font-family: 'Dancing Script', cursive;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
-h1 {
-  color: #ff6666;
+
+.match-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
 }
+
+.match-card {
+  background: linear-gradient(145deg, #f7c6c7, #f5a7b8);
+  border: 1px solid #f1c6c6;
+  border-radius: 20px;
+  padding: 25px;
+  width: 250px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.match-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* New Match Button */
+.new-match-btn {
+  margin-top: 30px;
+  background-color: #f7b7b2;
+  border: 1px solid #f1c6c6;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.new-match-btn:hover {
+  background-color: #f7a8a3;
+}
+
+/* Match Detail */
+.match-detail {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  width: 60%;
+  margin: 20px auto;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.match-info p {
+  font-size: 1.4em;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.match-info strong {
+  color: #ff6b81;
+}
+
 .button {
-  background-color: #ff6666;
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 1.2em;
+  background-color: #ff6b81;
   color: white;
-  padding: 15px 25px;
-  text-align: center;
+  border-radius: 25px;
   text-decoration: none;
+}
+
+.button:hover {
+  background-color: #ff4d63;
+  transition: 0.3s;
+}
+
+.match-detail p {
+  font-size: 1.3em;
+  color: #ff6b81;
+}
+
+/* Global Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Title Styling */
+.title {
+  font-size: 3em;
+  color: #ff6b81;
+  font-family: 'Dancing Script', cursive;
+  margin-top: 50px;
+}
+
+.highlight {
+  color: #e74c3c;
+  font-size: 2.4em;
+}
+
+/* Intro Text */
+.intro-text {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 40px;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Button Styling */
+.button {
   display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 5px;
+  background-color: #ff6b81;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 25px;
+  text-decoration: none;
+  margin: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e74c3c;
+}
+
+.sign-up {
+  background-color: #f7b7b2;
+}
+
+.sign-up:hover {
+  background-color: #f7a8a3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5em;
+  }
+  .intro-text {
+    font-size: 1.2em;
+  }
+  .button {
+    font-size: 1.1em;
+    padding: 12px 25px;
+  }
 }

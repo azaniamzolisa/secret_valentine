@@ -1,28 +1,33 @@
+Match.destroy_all
+Profile.destroy_all
+User.destroy_all
+
 # Create users and profiles
 users_data = [
   "Bongiwe", "Genius", "Siza", "Sifiso", "Micaela",
-  "Rayshaan", "Ashley", "Roberto", "Jan-Phillip", "Binta",
+  "Rayshaan", "Ashley", "Roberto", "JP", "Binta",
   "Janet", "Katherine", "Prince", "Kiki", "Tennessee", "Gabz"
 ]
 
+counter = 1
 users = users_data.map do |name|
   user = User.create!(
-    email: "#{name.downcase}@example.com",
+    email: "#{name.downcase}#{counter}@example.com",
     password: 'password',
     password_confirmation: 'password'
   )
+
+  counter += 1
 
   Profile.create!(
     user_id: user.id,
     name: name
   )
-
   user
 end
 
-# Assign matches using rotation to avoid self-matching
 givers = users.shuffle
-receivers = givers.rotate(1) # Ensures each user gives and receives from different users
+receivers = givers.rotate(1)
 
 givers.zip(receivers).each do |giver, receiver|
   Match.create!(

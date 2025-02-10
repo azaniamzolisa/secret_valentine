@@ -1,7 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: #ff6b81; font-size: 20px; font-family: 'Dancing Script', cursive;"><%= notice %></p>
 
-<%= render @match %>
+<h1 class="page-title">💖 Match Details 💖</h1>
 
-<div>
-  <%= link_to "Back to matches", root_path %>
+<div class="match-detail">
+  <div class="match-info">
+    <% profile = Profile.find_by(user_id: current_user.received_match) %>
+    <p><strong>Receiver:</strong> <%= profile.name %></p>
+  </div>
+
+  <%= link_to "Back to matches", root_path, class: "button" %>
 </div>
