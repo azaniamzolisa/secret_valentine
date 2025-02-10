@@ -3,7 +3,7 @@
 
 <% if current_user %>
   <% if @match.present? %>
-    <%= link_to "View Match", match_path(@match) %>
+    <%= link_to "View Match", match_path(current_user.received_match) if current_user.received_match.present? %>
   <% else %>
     <%= link_to "Find a Match", new_match_path %>
   <% end %>

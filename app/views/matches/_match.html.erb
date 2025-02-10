@@ -1,12 +1,13 @@
 <div id="<%= dom_id match %>">
   <p>
-    <strong>Giver:</strong>
-    <%= match.giver_id %>
+    <strong>Receiver:</strong>
+    <% profile = Profile.find_by(user_id: current_user.received_match) %>
+    <%= profile.name %>
   </p>
 
   <p>
-    <strong>Receiver:</strong>
-    <%= match.receiver_id %>
+    <strong>Me:</strong>
+    <%= current_user.profile.name %>
   </p>
 
   <p>

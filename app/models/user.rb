@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_one :given_match, class_name: "Match", foreign_key: "giver_id"
   has_one :received_match, class_name: "Match", foreign_key: "receiver_id"
+  has_one :profile
 end

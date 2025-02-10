@@ -1,5 +1,3 @@
-# db/seeds.rb
-
 # Create users and profiles
 users_data = [
   "Bongiwe", "Genius", "Siza", "Sifiso", "Micaela",
@@ -9,7 +7,7 @@ users_data = [
 
 users = users_data.map do |name|
   user = User.create!(
-    email: "#{name.downcase}@example.com", # You can adjust the email format as needed
+    email: "#{name.downcase}@example.com",
     password: 'password',
     password_confirmation: 'password'
   )
@@ -18,18 +16,20 @@ users = users_data.map do |name|
     user_id: user.id,
     name: name
   )
+
   user
 end
 
-# Create random matches
-users.shuffle.each_slice(2) do |giver, receiver|
-  # Ensure no user is paired with themselves
-  next if giver == receiver
+# Assign matches using rotation to avoid self-matching
+givers = users.shuffle
+receivers = givers.rotate(1) # Ensures each user gives and receives from different users
 
-  # Create a match record for the giver and receiver
+givers.zip(receivers).each do |giver, receiver|
   Match.create!(
     giver_id: giver.id,
     receiver_id: receiver.id,
     status: 'pending'
   )
 end
+
+puts "Seed data created successfully! 🎁"
