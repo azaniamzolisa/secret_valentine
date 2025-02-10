@@ -1,0 +1,30 @@
+<div class="login-container">
+  <h2 class="login-title">💖 Log in to Secret Valentine 💖</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
+    <div class="field">
+      <%= f.label :email, class: "login-label" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, class: "login-label" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "login-input" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field remember-me">
+        <%= f.check_box :remember_me, class: "login-checkbox" %>
+        <%= f.label :remember_me, class: "login-label-inline" %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in 💌", class: "login-button" %>
+    </div>
+  <% end %>
+
+  <div class="login-links">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
